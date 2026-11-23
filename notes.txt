@@ -18,6 +18,7 @@ SPI (Serial Peripheral Interface)
 
 runs on master slave arch, 1 master can comm with bunch of diff slaves. select whom to talk to with chip/slave select and understand whos talking by checking mosi/miso (master out slave in, master in slave out), has sclk on all chips.
 can send+receive same time, higher speed than i2c/uart and pretty common (more pins than uart/i2c and short dist compared to rs-485/232 uart top proto's)
+need to configure modes since spec allows for ambiguity/configurability about when to sample, etc. (CPHA, CPOL, etc.)
 
 
 I2C
