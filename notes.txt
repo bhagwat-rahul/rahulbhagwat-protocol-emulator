@@ -1,0 +1,23 @@
+need to create (or implement) an ISA for comms (like raspberry pi, pio)
+build something that has instructions which handle toggle sequences for comms proto's
+Max output freq is 66MHz, so let's keep the design at 60 MHz to be able to comfortable configure upto 10T eth.
+maybeee reuse PIO since there are assemblers/compilers to run stuff on it.
+
+Protocol checklist:-
+
+UART
+easiest (only 2 wires each side) tx and rx on both devices + gnd conn
+no common clock between tx and rx, so need to negotiate baud rate (4800, 9600, 19200, 57600, 115200)
+bits:- start/stop, data, parity bit (idle state, line held high for easier damage detection)
+start is when you go lo from hi, then transmit data, send stop bit (5-9 data bits, lsb first)
+parity bit is end of data before stop
+
+SPI
+
+I2C
+
+CAN
+
+USB (low speed)
+
+ETH (10 Mbps)
