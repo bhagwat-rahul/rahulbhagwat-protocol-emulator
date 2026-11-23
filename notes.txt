@@ -5,19 +5,29 @@ maybeee reuse PIO since there are assemblers/compilers to run stuff on it.
 
 Protocol checklist:-
 
-UART
+UART (unified asynchro receiver transmitter)
+
 easiest (only 2 wires each side) tx and rx on both devices + gnd conn
 no common clock between tx and rx, so need to negotiate baud rate (4800, 9600, 19200, 57600, 115200)
 bits:- start/stop, data, parity bit (idle state, line held high for easier damage detection)
 start is when you go lo from hi, then transmit data, send stop bit (5-9 data bits, lsb first)
 parity bit is end of data before stop
 
-SPI
+
+SPI (Serial Peripheral Interface)
+
+runs on master slave arch, 1 master can comm with bunch of diff slaves. select whom to talk to with chip/slave select and understand whos talking by checking mosi/miso (master out slave in, master in slave out), has sclk on all chips.
+can send+receive same time, higher speed than i2c/uart and pretty common (more pins than uart/i2c and short dist compared to rs-485/232 uart top proto's)
+
 
 I2C
 
+
 CAN
+
 
 USB (low speed)
 
+
 ETH (10 Mbps)
+
